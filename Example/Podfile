@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CFCommon_Example' do
+  pod 'CFCommon', :path => '../'
+
+  target 'CFCommon_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
