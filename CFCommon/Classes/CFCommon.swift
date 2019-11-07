@@ -7,8 +7,7 @@
 
 import Foundation
 
-public func TBLog<T>(msg : T, file : String = #file, lineNumber : Int = #line) {
-    
+public func NSLog<T>(_ msg : T, file : String = #file, lineNumber : Int = #line) {
     #if DEBUG
     let fileName = (file as NSString).lastPathComponent
     print("[\(fileName): line: \(lineNumber)] \(msg)")

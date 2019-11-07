@@ -8,14 +8,23 @@
 
 import UIKit
 import CFCommon
-import AdSupport
-import ObjectiveC
+
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = setNavBarButton("购物车", .red, .blue, regularFont(15), nil, nil, .left, 10, complete: {
+            NSLog("左边")
+        })
+        
+        navigationItem.rightBarButtonItem = setNavBarButton("我的", .right, 10, complete: {[weak self] in
+            NSLog("右边")
+            let vc = HomeViewController(nibName: "HomeViewController", bundle: nil)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        })
+    
     }
 
     override func didReceiveMemoryWarning() {

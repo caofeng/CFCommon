@@ -73,6 +73,9 @@ public extension UILabel {
 
 public extension UIButton {
     
+    /**
+     标题，颜色，字号，图片，背景图片，颜色背景图片
+     */
     convenience init(_ title:String?,_ titleColor:UIColor?,_ titleFont:UIFont?,_ imageName:String?,_ highlightImageName:String?,_ bgImageName:String?,_ bgHighlightImageName:String?,_ bgColor:UIColor?,_ bgHighlightColor:UIColor?,_ superView:UIView?,_ imageBundle:Bundle = Bundle.main) {
         self.init()
         
@@ -100,7 +103,9 @@ public extension UIButton {
         superView?.addSubview(self)
     }
     
-    
+    /**
+    标题，颜色，字号
+    */
     convenience init(_ title:String?,_ titleColor:UIColor?,_ titleFont:UIFont?,_ superView:UIView?) {
         self.init()
         
@@ -110,6 +115,9 @@ public extension UIButton {
         superView?.addSubview(self)
     }
     
+    /**
+    标题，颜色，字号，图片
+    */
     convenience init(_ title:String?,_ titleColor:UIColor?,_ titleFont:UIFont?,_ imageName:String?,_ highlightImageName:String?,_ superView:UIView?,_ imageBundle:Bundle = Bundle.main) {
         self.init()
         
@@ -125,6 +133,9 @@ public extension UIButton {
         superView?.addSubview(self)
     }
     
+    /**
+    标题，颜色，字号，图片，背景图片
+    */
     convenience init(_ title:String?,_ titleColor:UIColor?,_ titleFont:UIFont?,_ imageName:String?,_ highlightImageName:String?,_ bgImageName:String?,_ bgHighlightImageName:String?,_ superView:UIView?,_ imageBundle:Bundle = Bundle.main) {
         self.init()
         
@@ -146,6 +157,9 @@ public extension UIButton {
         superView?.addSubview(self)
     }
     
+    /**
+    标题，颜色，字号，图片，颜色背景图片
+    */
     convenience init(_ title:String?,_ titleColor:UIColor?,_ titleFont:UIFont?,_ imageName:String?,_ highlightImageName:String?,_ bgColor:UIColor?,_ bgHighlightColor:UIColor?,_ superView:UIView?,_ imageBundle:Bundle = Bundle.main) {
         self.init()
         

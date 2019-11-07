@@ -38,10 +38,10 @@ public func thinFont(_ size:CGFloat) -> UIFont {
 
 public func printAllFontName(){
     for item in UIFont.familyNames {
-        TBLog(msg: "===========\(item):")
+        NSLog("===========\(item):")
         let names = UIFont.fontNames(forFamilyName: item)
         for value in names {
-            TBLog(msg: "==\(value)")
+            NSLog("==\(value)")
         }
     }
 }
@@ -87,7 +87,6 @@ public func UIColorFromRGB(_ color_vaule : String , _ alpha : CGFloat = 1) -> UI
     var hexValue : UInt64 = 0
     //查找16进制是否存在
     if scanner.scanHexInt64(&hexValue) {
-        print(hexValue)
         let redValue = CGFloat((hexValue & 0xFF0000) >> 16)/255.0
         let greenValue = CGFloat((hexValue & 0xFF00) >> 8)/255.0
         let blueValue = CGFloat(hexValue & 0xFF)/255.0
