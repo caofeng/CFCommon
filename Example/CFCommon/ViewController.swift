@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = setNavBarButton("购物车", .red, .blue, regularFont(15), nil, nil, .left, 10, complete: {[weak self] in
             NSLog("左边")
-            self?.showHudWithText("网络异常网络异常")
+            self?.showHudWithText("网络异常,稍后再试")
         })
         
         navigationItem.rightBarButtonItem = setNavBarButton("我的", .right, 10, complete: {[weak self] in
@@ -26,15 +26,18 @@ class ViewController: UIViewController {
         })
         
         let button = UIButton("点我", .red, regularFont(20), view)
+        button.backgroundColor = .blue
         button.center = view.center
         button.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        button.cf_setEnlargeEdge(30, 10, 0, 30)
         button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        
     }
+  
     @objc func buttonClick() {
         NSLog("00000000000000000")
         
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

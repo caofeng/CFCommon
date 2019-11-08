@@ -8,6 +8,7 @@
 import Foundation
 
 fileprivate var hudViewKey = 1000002
+fileprivate var hudShowKey = 1000003
 
 public enum HUDType {
     case text
@@ -16,6 +17,7 @@ public enum HUDType {
 }
 
 public extension UIViewController {
+    
     
     fileprivate var hudView:UIView? {
         set {
@@ -26,6 +28,19 @@ public extension UIViewController {
                 return handle
             }
             return nil
+        }
+    }
+    
+    /// 是否正在显示 Hud
+    fileprivate var isShowHud:Bool {
+        set{
+            objc_setAssociatedObject(self, &hudShowKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+        }
+        get{
+            if let handle = objc_getAssociatedObject(self, &hudShowKey) as? Bool {
+                return handle
+            }
+            return false
         }
     }
     
@@ -52,11 +67,13 @@ public extension UIViewController {
         }
         hudView?.removeFromSuperview()
         hudView = nil
+        isShowHud = false
     }
     
     fileprivate func showHud(_ type:HUDType,_ text:String?,_ textColor:UIColor? = .white,_ duration:TimeInterval = Double(LONG_MAX),_ leftOrRightPadding:CGFloat = 10,_ topOrBottomPadding:CGFloat = 8,_ cornerRadius:CGFloat = 8,_ font:UIFont = regularFont(17)) {
-        
-        hiddenHud()
+        guard !isShowHud else {
+            return
+        }
         hudView = UIView(RGBH(0, 0, 0, 0.001), view)
         hudView?.center = view.center
         hudView?.bounds = view.bounds
@@ -70,11 +87,14 @@ public extension UIViewController {
         }
         var wapperWidth:CGFloat = 70
         var wapperHeight:CGFloat = 70
-        let wapperView = UIView(RGBH(0, 0, 0, 0.9), hudView)
+        let wapperView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        hudView?.addSubview(wapperView)
+        wapperView.contentView.backgroundColor = .clear
+        wapperView.backgroundColor = .black
         wapperView.center = hudView!.center
         wapperView.tb_cornerRadius(cornerRadius)
         wapperView.alpha = 0
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.2) {
             wapperView.alpha = 1
         }
         
@@ -85,7 +105,7 @@ public extension UIViewController {
             wapperHeight = rect.height + 2*topOrBottomPadding
             wapperWidth = rect.width + 2*leftOrRightPadding
             
-            let label = createLabel(font,text,textColor,wapperView)
+            let label = createLabel(font,text,textColor,wapperView.contentView)
             label.frame = CGRect(x: leftOrRightPadding, y: topOrBottomPadding, width: rect.width, height: rect.height)
             
         } else if type == .textLoading {
@@ -104,7 +124,7 @@ public extension UIViewController {
                 wapperWidth = wapperHeight
             }
             
-            let label = createLabel(font,text,textColor,wapperView)
+            let label = createLabel(font,text,textColor,wapperView.contentView)
             label.frame = CGRect(x: (tempWidth-rect.width)/2, y: 50+topOrBottomPadding, width: rect.width, height: rect.height)
             var loadingView:UIActivityIndicatorView!
             if #available(iOS 13.0, *) {
@@ -128,6 +148,7 @@ public extension UIViewController {
             hudView?.addSubview(loadingView)
             loadingView.startAnimating()
         }
+        isShowHud = true
         wapperView.bounds = CGRect(x: 0, y: 0, width: wapperWidth, height: wapperHeight)
     }
     
