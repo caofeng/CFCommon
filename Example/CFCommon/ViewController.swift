@@ -15,17 +15,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = setNavBarButton("购物车", .red, .blue, regularFont(15), nil, nil, .left, 10, complete: {
+        navigationItem.leftBarButtonItem = setNavBarButton("购物车", .red, .blue, regularFont(15), nil, nil, .left, 10, complete: {[weak self] in
             NSLog("左边")
+            self?.showHudWithText("网络异常网络异常")
         })
         
         navigationItem.rightBarButtonItem = setNavBarButton("我的", .right, 10, complete: {[weak self] in
             NSLog("右边")
-            let vc = HomeViewController(nibName: "HomeViewController", bundle: nil)
-            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.showHudWithTextLoading("加载中...")
         })
-    
+        
+        let button = UIButton("点我", .red, regularFont(20), view)
+        button.center = view.center
+        button.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
     }
+    @objc func buttonClick() {
+        NSLog("00000000000000000")
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
