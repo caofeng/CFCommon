@@ -36,7 +36,6 @@ class ViewController: UIViewController {
   
     @objc func buttonClick() {
         NSLog("00000000000000000")
-        
     }
 
     override func didReceiveMemoryWarning() {

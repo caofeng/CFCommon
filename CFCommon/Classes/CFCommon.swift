@@ -22,6 +22,7 @@ public let IOS_VERSION_13_OR_ABOVE:Bool = Int(UIDevice.current.systemVersion.com
 public let IOS_VERSION_14_OR_ABOVE:Bool = Int(UIDevice.current.systemVersion.components(separatedBy: ".")[0])! >= 14
 
 /// 手机屏幕参数判断 -----------------------------
+public let iPhone = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone)
 public let iPhoneScale = UIScreen.main.scale
 public let kScreenWidth = UIScreen.main.bounds.size.width
 public let kScreenHeight = UIScreen.main.bounds.size.height
