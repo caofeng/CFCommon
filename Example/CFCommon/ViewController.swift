@@ -35,7 +35,13 @@ class ViewController: UIViewController {
     }
   
     @objc func buttonClick() {
-        NSLog("00000000000000000")
+        
+        let vc = HomeViewController()
+        let vm = HomeViewModel()
+        vm.name = "拓邦"
+        vc.viewModel = vm
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

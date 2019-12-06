@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B0D49D39951D40B450E7A7E /* Pods_CFCommon_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC04AE0ED164EB57F1400B5 /* Pods_CFCommon_Example.framework */; };
-		3440CEC02373F8B000A603DF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440CEBE2373F8B000A603DF /* HomeViewController.swift */; };
-		3440CEC12373F8B000A603DF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3440CEBF2373F8B000A603DF /* HomeViewController.xib */; };
+		3476C1CB2397A3DA0013CA1A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476C1CA2397A3DA0013CA1A /* HomeViewController.swift */; };
+		3476C1CD2397A56F0013CA1A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476C1CC2397A56F0013CA1A /* HomeViewModel.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -31,8 +31,8 @@
 
 /* Begin PBXFileReference section */
 		1CC04AE0ED164EB57F1400B5 /* Pods_CFCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CFCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3440CEBE2373F8B000A603DF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		3440CEBF2373F8B000A603DF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		3476C1CA2397A3DA0013CA1A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3476C1CC2397A56F0013CA1A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		429300E0D9914DD017C8E7D5 /* Pods-CFCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CFCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-CFCommon_Example/Pods-CFCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5DFCFF1343FB0BEE97B8B541 /* Pods-CFCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CFCommon_Tests.release.xcconfig"; path = "Target Support Files/Pods-CFCommon_Tests/Pods-CFCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CFCommon_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFCommon_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,8 +110,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				3440CEBE2373F8B000A603DF /* HomeViewController.swift */,
-				3440CEBF2373F8B000A603DF /* HomeViewController.xib */,
+				3476C1CA2397A3DA0013CA1A /* HomeViewController.swift */,
+				3476C1CC2397A56F0013CA1A /* HomeViewModel.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -256,7 +256,6 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				3440CEC12373F8B000A603DF /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +277,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CFCommon_Example/Pods-CFCommon_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CFCommon/CFCommon.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFCommon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -341,7 +346,8 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				3440CEC02373F8B000A603DF /* HomeViewController.swift in Sources */,
+				3476C1CB2397A3DA0013CA1A /* HomeViewController.swift in Sources */,
+				3476C1CD2397A56F0013CA1A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
